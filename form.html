@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact form to email using javascript</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <div class="container">
+        
+        <form onsubmit="sendemail();reset();return false;">
+            <h3>GET IN TOUCH</h3>
+            <input type="text" name="" id="First Name" placeholder="First Name" required>
+            <input type="text" name="" id="Other Names" placeholder="Other Names" required>
+            <input type="number" name="" id="Phone number" placeholder="Phone number" required>
+            <input type="E-mail" name="" id="E-mail" placeholder="E-mail" required>
+            <textarea name="" id="Message" rows="5" placeholder="How can we help you ?"></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendemail(){
+            Email.send({
+    Host : "smtp.elasticemail.com",
+    Username : "username",
+    Password : "password",
+    To : 'them@website.com',
+    From : "you@isp.com",
+    Subject : "This is the subject",
+    Body : "And this is the body"
+}).then(
+  message => alert(message)
+);
+        }
+    </script>
+</body>
+</html>
